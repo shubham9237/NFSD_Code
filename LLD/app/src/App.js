@@ -18,20 +18,26 @@ function App() {
   return (
     <HashRouter>
       <div>
-        <header className="text-2xl font-bold py-5 bg-black text-white text-center flex justify-between">
-          <h1>Hello World</h1>
-          <nav className="p-2 m-2 w-[80%] text-md flex justify-between">
-            <Link to="/" className="p-2">Home</Link>
-            <Link to="/about" className="p-2">About</Link>
-            <Link to="/accordian" className="p-2">Accordian</Link>
-            <Link to="/image-slider" className="p-2">ImageSlider</Link>
-            <Link to="/team" className="p-2">Team</Link>
-            <Link to="/comments" className="p-2">Nested Comments</Link>
-            <Link to="/pagination" className="p-2">Pagination</Link>
-            <Link to="/live-chat" className="p-2">Live Chat</Link>
-            <Link to="/search-ui" className="p-2">SearchUI</Link>
-            <Link to="/login" className="p-2">Login</Link>
-            <select value={lang} onChange={(e) => setLang(e.target.value)} className="font-black">
+        <header className="text-2xl font-bold py-5 bg-black text-white flex justify-between items-center">
+          {/* Aligns the header content and links in a single row */}
+          <h1 className="flex-1 text-left pl-5">Hello World</h1>
+
+          {/* Navigation links */}
+          <nav className="p-2 m-2 text-md">
+            <Link to="/" className="p-2 text-sm">Home</Link>
+            <Link to="/about" className="p-2 text-sm">About</Link>
+            <Link to="/accordian" className="p-2 text-sm">Accordian</Link>
+            <Link to="/image-slider" className="p-2 text-sm">ImageSlider</Link>
+            <Link to="/comments" className="p-2 text-sm">Nested Comments</Link>
+            <Link to="/pagination" className="p-2 text-sm">Pagination</Link>
+            <Link to="/live-chat" className="p-2 text-sm">Live Chat</Link>
+            <Link to="/search-ui" className="p-2 text-sm">SearchUI</Link>
+            <Link to="/login" className="p-2 text-sm">Login</Link>
+            <select 
+              value={lang} 
+              onChange={(e) => setLang(e.target.value)} 
+              className="bg-gray-800 text-white border border-gray-600 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            >
               <option value="en">English</option>
               <option value="hi">Hindi</option>
               <option value="sp">Spanish</option>
@@ -45,9 +51,6 @@ function App() {
           <Route path="/about" element={<About lang={lang} />} />
           <Route path="/accordian" element={<Accordion />} />
           <Route path="/image-slider" element={<ImageSlider />} />
-          <Route element={<ProtectedRoute />}>
-            <Route path="/team" element={<Team />} />
-          </Route>
           <Route path="/comments" element={<Comments />} />
           <Route path="/pagination" element={<Pagination />} />
           <Route path="/live-chat" element={<LiveChat />} />

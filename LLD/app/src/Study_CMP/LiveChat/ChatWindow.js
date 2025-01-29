@@ -54,7 +54,7 @@ const ChatWindow = () => {
     useEffect(() => {
         const s = setInterval(() => {
             fetchData()
-        }, 5000)
+        }, 2000)
 
         return () => {
             clearInterval(s);

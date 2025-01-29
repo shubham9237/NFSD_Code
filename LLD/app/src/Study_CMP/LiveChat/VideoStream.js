@@ -5,7 +5,7 @@ const VideoStream = () => {
             <iframe 
             width="1200" 
             height="600" 
-            src="https://www.youtube.com/embed/tUdLZDxB4Lk?si=OddPCWPM44LxEJmX" 
+            src="https://www.youtube.com/embed/RCZ8mvsKEu4" 
             title="YouTube video player" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             ></iframe>        
@@ -13,3 +13,4 @@ const VideoStream = () => {
     )
 }
 export default VideoStream;
+
