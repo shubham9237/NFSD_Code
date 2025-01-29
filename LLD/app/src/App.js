@@ -1,6 +1,6 @@
 import About from "./Study_CMP/About";
 import Body from "./Study_CMP/Body";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes, Link } from "react-router-dom";
 import Team from "./Study_CMP/Team";
 import Login from "./Study_CMP/Login";
 import ProtectedRoute from "./Study_CMP/ProtectedRoute";
@@ -14,45 +14,49 @@ import SearchUI from "./Study_CMP/searchUI/SearchUI";
 
 function App() {
   const [lang, setLang] = useState("en");
-  return <div>
-    <header className="text-2xl font-bold py-5 bg-black text-white text-center flex justify-between">
-      <h1>Hello World</h1>
-      <nav className="p-2 m-2 w-[80%] text-md flex justify-between">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/accordian">Accordian</a>
-        <a href="/image-slider">ImageSlider</a>
-        <a href="/team">Team</a>
-        <a href="/comments">Nested Comments</a>
-        <a href="/pagination">Pagination</a>
-        <a href="/live-chat">Live Chat</a>
-        <a href="/search-ui">SearchUI</a>
-        <a href="/login">Login</a>
-        <select value={lang} onChange={(e)=>setLang(e.target.value)} className="font-black">
-          <option value="en">English</option>
-          <option value="hi">Hindi</option>
-          <option value="sp">Spanish</option>
-          <option value="ru">Russian</option>
-        </select>
-      </nav>
-    </header>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Body />}></Route>
-        <Route path="/about" element={<About lang={lang} />}></Route>
-        <Route path="/accordian" element={<Accordion />}></Route>
-        <Route path="/image-slider" element={<ImageSlider />}></Route>
-        <Route element={<ProtectedRoute />}>
-          <Route path="/team" element={<Team />}></Route>
-        </Route>
-        <Route path="/comments" element={<Comments />}></Route>
-        <Route path="/pagination" element={<Pagination />}></Route>
-        <Route path="/live-chat" element={<LiveChat />}></Route>
-        <Route path="/search-ui" element={<SearchUI />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-      </Routes>
-    </BrowserRouter>
-  </div>;
+
+  return (
+    <HashRouter>
+      <div>
+        <header className="text-2xl font-bold py-5 bg-black text-white text-center flex justify-between">
+          <h1>Hello World</h1>
+          <nav className="p-2 m-2 w-[80%] text-md flex justify-between">
+            <Link to="/" className="p-2">Home</Link>
+            <Link to="/about" className="p-2">About</Link>
+            <Link to="/accordian" className="p-2">Accordian</Link>
+            <Link to="/image-slider" className="p-2">ImageSlider</Link>
+            <Link to="/team" className="p-2">Team</Link>
+            <Link to="/comments" className="p-2">Nested Comments</Link>
+            <Link to="/pagination" className="p-2">Pagination</Link>
+            <Link to="/live-chat" className="p-2">Live Chat</Link>
+            <Link to="/search-ui" className="p-2">SearchUI</Link>
+            <Link to="/login" className="p-2">Login</Link>
+            <select value={lang} onChange={(e) => setLang(e.target.value)} className="font-black">
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+              <option value="sp">Spanish</option>
+              <option value="ru">Russian</option>
+            </select>
+          </nav>
+        </header>
+        
+        <Routes>
+          <Route path="/" element={<Body />} />
+          <Route path="/about" element={<About lang={lang} />} />
+          <Route path="/accordian" element={<Accordion />} />
+          <Route path="/image-slider" element={<ImageSlider />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/team" element={<Team />} />
+          </Route>
+          <Route path="/comments" element={<Comments />} />
+          <Route path="/pagination" element={<Pagination />} />
+          <Route path="/live-chat" element={<LiveChat />} />
+          <Route path="/search-ui" element={<SearchUI />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
+    </HashRouter>
+  );
 }
 
 export default App;
